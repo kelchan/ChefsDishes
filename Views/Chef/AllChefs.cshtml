@@ -1,0 +1,31 @@
+@model List<Chef>
+
+<div class="d-flex justify-content-between">
+    <h1> Chefs | <a href="/dishes">Dishes</a> </h1>
+    <a href="/new">Add a Chef</a>
+</div>
+
+<h2>Check out our roster of Chefs!</h2>
+
+
+<table class="table table-striped">
+    <thead>
+    <tr>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+        <th scope="col">Age</th>
+        <th scope="col"># of Dishes</th>
+    </tr>
+    </thead>
+@foreach( Chef chef in Model )
+{
+    <tbody>
+    <tr>
+        <th scope="row"></th>
+        <td>@chef.FullName()</td>
+        <td>@chef.Age()</td>
+        <td>@chef.CreatedDishes.Count()</td>
+    </tr>
+    </tbody>
+}
+</table>

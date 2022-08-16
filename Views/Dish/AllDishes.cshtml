@@ -1,0 +1,37 @@
+@model List<Dish>
+
+<div class="d-flex justify-content-between">
+    <h1> <a href="/">Chefs</a> | Dishes </h1>
+    <a href="/dishes/new">Add a Dish</a>
+</div>
+
+<h2>Yum, take a look at our tasty dishes!</h2>
+
+
+<table class="table table-striped">
+    <thead>
+    <tr>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+        <th scope="col">Chef</th>
+        <th scope="col">Tastiness</th>
+        <th scope="col">Calories</th>
+    </tr>
+    </thead>
+    <tbody>
+
+    @if (ViewBag.AllDishes != null)
+    {
+        @foreach( var dish in ViewBag.AllDishes )
+        {
+            <tr>
+                <th scope="row"></th>
+                <td>@dish.Name</td>
+                <td>@dish.Cook.FirstName</td>
+                <td>@dish.Tastiness</td>
+                <td>@dish.NumOfCalories</td>
+            </tr>
+        }
+    }
+    </tbody>
+</table>
